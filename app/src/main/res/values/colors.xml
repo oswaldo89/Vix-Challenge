@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#0A0D18</color>
+    <color name="colorPrimaryDark">#0A0D15</color>
+    <color name="colorAccent">#FFFFFFFF</color>
+
+    <color name="circleButton">#383B44</color>
+
+
+
+    <color name="blackAlpha90Color">#E6000000</color>
+    <color name="blackAlpha20Color">#33000000</color>
+</resources>

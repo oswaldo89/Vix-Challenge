@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_50">4dp</dimen>
+    <dimen name="small_150">12dp</dimen>
+
+    <dimen name="normal_100">16dp</dimen>
+
+    <dimen name="normal_200">32dp</dimen>
+    <dimen name="normal_225">36dp</dimen>
+    <dimen name="normal_250">40dp</dimen>
+
+    <!-- You can go on with normal_300, normal_325, etc. -->
+    <!-- You can also go with large_xxx having 'larger' steps -->
+
+    <!-- Text Sizes. -->
+    <dimen name="text_small_1">12sp</dimen>
+    <dimen name="text_large_1">20sp</dimen>
+    <dimen name="text_large_2">40sp</dimen>
+
+    <dimen name="logo_marca_width">90dp</dimen>
+    <dimen name="logo_marca_height">35dp</dimen>
+
+    <dimen name="poster_thumb_width">270dp</dimen>
+    <dimen name="movie_thumb_width">138dp</dimen>
+    <dimen name="movie_thumb_height">190dp</dimen>
+
+    <dimen name="recommended_movie_thumb_width">156dp</dimen>
+    <dimen name="recommended_movie_thumb_height">205dp</dimen>
+
+</resources>
