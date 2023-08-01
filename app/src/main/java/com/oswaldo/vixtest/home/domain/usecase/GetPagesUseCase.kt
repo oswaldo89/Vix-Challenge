@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class GetPages @Inject constructor(private val moviesRepository: MoviesRepository) {
+class GetPagesUseCase @Inject constructor(private val moviesRepository: MoviesRepository) {
     suspend operator fun invoke(): List<String> {
         return withContext(Dispatchers.IO) {
             moviesRepository.getPages()

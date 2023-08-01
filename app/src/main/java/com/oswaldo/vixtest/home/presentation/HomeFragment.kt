@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.oswaldo.vixtest.BaseFragment
+import com.oswaldo.vixtest.R
 import com.oswaldo.vixtest.core.utils.OneTimeEventObserver
 import com.oswaldo.vixtest.databinding.FragmentHomeBinding
 import com.oswaldo.vixtest.home.data.dto.EdgeX
 import com.oswaldo.vixtest.home.presentation.adapters.IMovieEvent
 import com.oswaldo.vixtest.home.presentation.adapters.MovieListAdapter
 import com.oswaldo.vixtest.home.presentation.adapters.MoviePosterListAdapter
+import com.oswaldo.vixtest.home.presentation.adapters.PageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +22,7 @@ class HomeFragment : BaseFragment(), IMovieEvent {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    private lateinit var pagesAdapter: MovieListAdapter
+    private lateinit var pagesAdapter: PageAdapter
     private lateinit var posterMoviesAdapter: MoviePosterListAdapter
     private lateinit var originalMoviesAdapter: MovieListAdapter
 
@@ -37,10 +39,17 @@ class HomeFragment : BaseFragment(), IMovieEvent {
         viewModel.init()
         return binding.root
     }
+
+
     private fun observeState() {
         viewModel.stateLiveData.observe(viewLifecycleOwner) {
             when (it) {
-                is HomeViewModel.State.ShowOriginals -> setupData(it.originalMovies, it.postersMovies)
+                is HomeViewModel.State.ShowOriginals -> setupData(
+                    it.pages,
+                    it.originalMovies,
+                    it.postersMovies
+                )
+
                 else -> {}
             }
         }
@@ -65,9 +74,9 @@ class HomeFragment : BaseFragment(), IMovieEvent {
         }
     }
 
-    private fun setupData(originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
+    private fun setupData(pages: List<String>, originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
         binding.apply {
-            pagesAdapter = MovieListAdapter(originalMovies, this@HomeFragment)
+            pagesAdapter = PageAdapter(pages, this@HomeFragment)
             rvPages.adapter = pagesAdapter
 
             originalMoviesAdapter = MovieListAdapter(originalMovies, this@HomeFragment)
@@ -79,7 +88,6 @@ class HomeFragment : BaseFragment(), IMovieEvent {
     }
 
     override fun onClickMovie(movie: EdgeX) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
-        findNavController().navigate(action)
+        navController.navigate(R.id.action_homeFragment_to_detailFragment)
     }
 }

@@ -21,6 +21,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:layout_marginStart">@dimen/normal_100</item>
-        <item name="android:layout_marginTop">@dimen/normal_200</item>
+        <item name="android:layout_marginTop">@dimen/small_150</item>
     </style>
 </resources>

@@ -21,6 +21,13 @@
         android:id="@+id/detailFragment"
         android:name="com.oswaldo.vixtest.detail.presentation.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+
+        <action
+            android:id="@+id/action_fragment_3_to_fragment_1"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment" />
+
+    </fragment>
 
 </navigation>
