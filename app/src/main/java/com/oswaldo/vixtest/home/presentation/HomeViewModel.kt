@@ -3,6 +3,7 @@ package com.oswaldo.vixtest.home.presentation
 import androidx.lifecycle.viewModelScope
 import com.oswaldo.vixtest.core.BaseViewModel
 import com.oswaldo.vixtest.home.data.dto.EdgeX
+import com.oswaldo.vixtest.home.data.dto.UiPage
 import com.oswaldo.vixtest.home.domain.usecase.GetOriginalMoviesUseCase
 import com.oswaldo.vixtest.home.domain.usecase.GetPagesUseCase
 import com.oswaldo.vixtest.home.domain.usecase.GetPostersMoviesUseCase
@@ -16,10 +17,10 @@ class HomeViewModel @Inject constructor(
     private var originalMoviesUsecase: GetOriginalMoviesUseCase,
     private var postersMoviesUsecase: GetPostersMoviesUseCase
 ) : BaseViewModel<HomeViewModel.State, HomeViewModel.Navigation>() {
-    private var launched = false
+    private var dataHasBeenLoaded = false
     fun init() {
         viewModelScope.launch {
-            if(!launched){
+            if (!dataHasBeenLoaded) {
                 setState(
                     State.ShowOriginals(
                         pagesUseCase(),
@@ -27,18 +28,18 @@ class HomeViewModel @Inject constructor(
                         postersMoviesUsecase()
                     )
                 )
-                launched = true
+                dataHasBeenLoaded = true
             }
         }
     }
 
-    fun onMovieClicked(data: EdgeX){
+    fun onMovieClicked(data: EdgeX) {
         navigateTo(Navigation.GoToDetail(data))
     }
 
     sealed class State {
         class ShowOriginals(
-            val pages: List<String>,
+            val pages: List<UiPage>,
             val originalMovies: List<EdgeX>,
             val postersMovies: List<EdgeX>
         ) : State()

@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.oswaldo.vixtest.home.data.datasource.MoviesRemoteDataSource
 import com.oswaldo.vixtest.home.data.dto.DataUiPage
 import com.oswaldo.vixtest.home.data.dto.EdgeX
+import com.oswaldo.vixtest.home.data.dto.UiPage
 import com.oswaldo.vixtest.home.domain.repository.MoviesRepository
 
 
@@ -12,8 +13,15 @@ class DefaultMoviesRepository(
     private val remoteDataSource: MoviesRemoteDataSource,
     private val context: Context
 ) : MoviesRepository {
-    override suspend fun getPages(): List<String> {
-        return listOf("Inicio", "Cine", "Novelas", "Premium", "Series", "Kids")
+    override suspend fun getPages(): List<UiPage> {
+        return listOf(
+            UiPage(pageName = "Inicio", selected = true),
+            UiPage(pageName = "Cine", selected = false),
+            UiPage(pageName = "Novelas", selected = false),
+            UiPage(pageName = "Premium", selected = false),
+            UiPage(pageName = "Series", selected = false),
+            UiPage(pageName = "Kids", selected = false)
+        )
     }
 
     // if the data comes from the endpoint, we can use remoteDataSource
@@ -34,7 +42,7 @@ class DefaultMoviesRepository(
 
     private fun getMoviesByCursor(cursor: String): List<EdgeX> {
         val source = getSource()
-        val movies = source.data.uiPage.uiModules.edges.find { it.cursor == cursor }
+        val movies = source.data.uiPage.uiModules?.edges?.find { it.cursor == cursor }
         return movies?.node?.contents?.edges.orEmpty()
     }
 

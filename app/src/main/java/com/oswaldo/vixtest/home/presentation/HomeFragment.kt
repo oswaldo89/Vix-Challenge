@@ -1,6 +1,7 @@
 package com.oswaldo.vixtest.home.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +12,16 @@ import com.oswaldo.vixtest.R
 import com.oswaldo.vixtest.core.utils.OneTimeEventObserver
 import com.oswaldo.vixtest.databinding.FragmentHomeBinding
 import com.oswaldo.vixtest.home.data.dto.EdgeX
+import com.oswaldo.vixtest.home.data.dto.UiPage
 import com.oswaldo.vixtest.home.presentation.adapters.IMovieEvent
+import com.oswaldo.vixtest.home.presentation.adapters.IPageEvent
 import com.oswaldo.vixtest.home.presentation.adapters.MovieListAdapter
 import com.oswaldo.vixtest.home.presentation.adapters.MoviePosterListAdapter
 import com.oswaldo.vixtest.home.presentation.adapters.PageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), IMovieEvent {
+class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -76,7 +79,7 @@ class HomeFragment : BaseFragment(), IMovieEvent {
         }
     }
 
-    private fun setupData(pages: List<String>, originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
+    private fun setupData(pages: List<UiPage>, originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
         binding.apply {
             pagesAdapter = PageAdapter(pages, this@HomeFragment)
             rvPages.adapter = pagesAdapter
@@ -91,5 +94,9 @@ class HomeFragment : BaseFragment(), IMovieEvent {
 
     override fun onClickMovie(movie: EdgeX) {
         viewModel.onMovieClicked(movie)
+    }
+
+    override fun onClickPage(page: UiPage) {
+        Log.v("page_clicked", page.pageName)
     }
 }
