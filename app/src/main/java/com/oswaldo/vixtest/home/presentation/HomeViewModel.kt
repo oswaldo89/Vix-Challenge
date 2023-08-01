@@ -15,7 +15,7 @@ class HomeViewModel @Inject constructor(
     private var pagesUseCase: GetPagesUseCase,
     private var originalMoviesUsecase: GetOriginalMoviesUseCase,
     private var postersMoviesUsecase: GetPostersMoviesUseCase
-) : BaseViewModel<HomeViewModel.State, Unit>() {
+) : BaseViewModel<HomeViewModel.State, HomeViewModel.Navigation>() {
     private var launched = false
     fun init() {
         viewModelScope.launch {
@@ -32,6 +32,10 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun onMovieClicked(data: EdgeX){
+        navigateTo(Navigation.GoToDetail(data))
+    }
+
     sealed class State {
         class ShowOriginals(
             val pages: List<String>,
@@ -41,6 +45,6 @@ class HomeViewModel @Inject constructor(
     }
 
     sealed class Navigation {
-        // inject navigation
+        class GoToDetail(val data: EdgeX) : Navigation()
     }
 }

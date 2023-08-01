@@ -60,7 +60,9 @@ class HomeFragment : BaseFragment(), IMovieEvent {
             viewLifecycleOwner,
             OneTimeEventObserver {
                 when (it) {
-                    //is HomeViewModel.Navigation.NAME -> {}
+                    is HomeViewModel.Navigation.GoToDetail -> {
+                        navController.navigate(R.id.action_homeFragment_to_detailFragment)
+                    }
                 }
             }
         )
@@ -88,6 +90,6 @@ class HomeFragment : BaseFragment(), IMovieEvent {
     }
 
     override fun onClickMovie(movie: EdgeX) {
-        navController.navigate(R.id.action_homeFragment_to_detailFragment)
+        viewModel.onMovieClicked(movie)
     }
 }
