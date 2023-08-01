@@ -36,8 +36,8 @@ class OneTimeEvent<out T>(private var content: T?) {
  * [onEventUnhandledContent] is *only* called if the [OneTimeEvent]'s contents has not been handled.
  */
 class OneTimeEventObserver<T>(private val onEventUnhandledContent: (T) -> Unit) : Observer<OneTimeEvent<T>> {
-    override fun onChanged(event: OneTimeEvent<T>?) {
-        event?.getContentIfNotHandled()?.let {
+    override fun onChanged(event: OneTimeEvent<T>) {
+        event.getContentIfNotHandled()?.let {
             onEventUnhandledContent(it)
         }
     }

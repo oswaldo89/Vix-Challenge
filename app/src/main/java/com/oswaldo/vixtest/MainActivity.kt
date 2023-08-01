@@ -2,6 +2,7 @@ package com.oswaldo.vixtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.fragment.NavHostFragment
 import com.oswaldo.vixtest.R
 import com.oswaldo.vixtest.databinding.ActivityMainBinding
 import com.oswaldo.vixtest.databinding.ActivitySplashBinding
@@ -20,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, HomeFragment())
-                .commit()
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
     }
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oswaldo.vixtest.core.utils.OneTimeEventObserver
 import com.oswaldo.vixtest.databinding.FragmentHomeBinding
@@ -79,17 +80,8 @@ class HomeFragment : Fragment(), IMovieEvent {
         )
     }
 
-    companion object {
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
     override fun onClickMovie(movie: EdgeX) {
-
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
+        findNavController().navigate(action)
     }
 }
