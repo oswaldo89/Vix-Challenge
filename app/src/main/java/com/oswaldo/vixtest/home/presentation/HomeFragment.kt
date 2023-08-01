@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.oswaldo.vixtest.BaseFragment
 import com.oswaldo.vixtest.core.utils.OneTimeEventObserver
 import com.oswaldo.vixtest.databinding.FragmentHomeBinding
 import com.oswaldo.vixtest.home.data.dto.EdgeX
@@ -16,15 +15,14 @@ import com.oswaldo.vixtest.home.presentation.adapters.MovieListAdapter
 import com.oswaldo.vixtest.home.presentation.adapters.MoviePosterListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 @AndroidEntryPoint
-class HomeFragment : Fragment(), IMovieEvent {
+class HomeFragment : BaseFragment(), IMovieEvent {
 
     private val viewModel: HomeViewModel by viewModels()
-    private lateinit var originalMoviesAdapter: MovieListAdapter
+
+    private lateinit var pagesAdapter: MovieListAdapter
     private lateinit var posterMoviesAdapter: MoviePosterListAdapter
+    private lateinit var originalMoviesAdapter: MovieListAdapter
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -32,40 +30,19 @@ class HomeFragment : Fragment(), IMovieEvent {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        viewModel.init()
-
-        setupRecyclerView()
         observeState()
         observeNavigation()
+        setupHorizontalRecyclerViews()
 
+        viewModel.init()
         return binding.root
     }
-
-    private fun setupRecyclerView() {
-        binding.apply {
-            rvPosters.layoutManager = createHorizontalLinearLayout()
-            rvOriginals.layoutManager = createHorizontalLinearLayout()
-        }
-    }
-
-    private fun createHorizontalLinearLayout() = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-
     private fun observeState() {
         viewModel.stateLiveData.observe(viewLifecycleOwner) {
             when (it) {
-                is HomeViewModel.State.ShowOriginals -> showOriginals(it.originalMovies, it.postersMovies)
+                is HomeViewModel.State.ShowOriginals -> setupData(it.originalMovies, it.postersMovies)
                 else -> {}
             }
-        }
-    }
-
-    private fun showOriginals(originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
-        binding.apply {
-            originalMoviesAdapter = MovieListAdapter(originalMovies, this@HomeFragment)
-            rvOriginals.adapter = originalMoviesAdapter
-
-            posterMoviesAdapter = MoviePosterListAdapter(postersMovies, this@HomeFragment)
-            rvPosters.adapter = posterMoviesAdapter
         }
     }
 
@@ -78,6 +55,27 @@ class HomeFragment : Fragment(), IMovieEvent {
                 }
             }
         )
+    }
+
+    private fun setupHorizontalRecyclerViews() {
+        binding.apply {
+            setupHorizontalRv(rvPages)
+            setupHorizontalRv(rvOriginals)
+            setupHorizontalRv(rvPosters)
+        }
+    }
+
+    private fun setupData(originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
+        binding.apply {
+            pagesAdapter = MovieListAdapter(originalMovies, this@HomeFragment)
+            rvPages.adapter = pagesAdapter
+
+            originalMoviesAdapter = MovieListAdapter(originalMovies, this@HomeFragment)
+            rvOriginals.adapter = originalMoviesAdapter
+
+            posterMoviesAdapter = MoviePosterListAdapter(postersMovies, this@HomeFragment)
+            rvPosters.adapter = posterMoviesAdapter
+        }
     }
 
     override fun onClickMovie(movie: EdgeX) {

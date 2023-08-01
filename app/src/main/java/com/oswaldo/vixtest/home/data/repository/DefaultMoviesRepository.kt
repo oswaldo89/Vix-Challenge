@@ -12,6 +12,10 @@ class DefaultMoviesRepository(
     private val remoteDataSource: MoviesRemoteDataSource,
     private val context: Context
 ) : MoviesRepository {
+    override suspend fun getPages(): List<String> {
+        return listOf("Inicio", "Cine", "Novelas", "Premium", "Series", "Kids")
+    }
+
     // if the data comes from the endpoint, we can use remoteDataSource
     // but for this example, use a local json provided by the company
     override suspend fun getOriginalMovies(): List<EdgeX> {
