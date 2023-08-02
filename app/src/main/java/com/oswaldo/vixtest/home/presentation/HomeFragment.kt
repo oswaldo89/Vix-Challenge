@@ -1,7 +1,6 @@
 package com.oswaldo.vixtest.home.presentation
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View

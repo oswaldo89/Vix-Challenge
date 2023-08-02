@@ -8,7 +8,7 @@ import com.oswaldo.vixtest.core.utils.setOnSafeClickListener
 import com.oswaldo.vixtest.databinding.ItemMovieThumbBinding
 import com.oswaldo.vixtest.home.data.dto.EdgeX
 
-class MovieListAdapter(private var movie: List<EdgeX>, private var iMovieEvent: IMovieEvent) :
+class MovieListAdapter(private var movies: List<EdgeX>, private var iMovieEvent: IMovieEvent) :
     RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemMovieThumbBinding) :
@@ -22,16 +22,16 @@ class MovieListAdapter(private var movie: List<EdgeX>, private var iMovieEvent: 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            with(movie[position]) {
+            with(movies[position]) {
                 binding.thumbMovie.loadUrl(context = holder.itemView.context, url = this.node.image.link.orEmpty())
             }
             this.itemView.setOnSafeClickListener {
-                iMovieEvent.onClickMovie(movie[position])
+                iMovieEvent.onClickMovie(movies[position])
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return movie.size
+        return movies.size
     }
 }
