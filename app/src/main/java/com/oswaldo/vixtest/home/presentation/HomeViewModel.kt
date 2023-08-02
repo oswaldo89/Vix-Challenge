@@ -36,11 +36,26 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    private fun forceReloadPage() {
+        dataHasBeenLoaded = false
+    }
+
     fun onMovieClicked(data: EdgeX) {
         navigateTo(Navigation.GoToDetail(data))
     }
 
+    fun onPageClicked(page: UiPage) {
+        // Simulation, only to show how state change to empty, imagine here call again the JSON
+        if (page.pageName == "Inicio") {
+            init()
+        } else {
+            forceReloadPage()
+            setState(State.EmptyView)
+        }
+    }
+
     sealed class State {
+        object EmptyView : State()
         class ShowOriginals(
             val pages: List<UiPage>,
             val originalMovies: List<EdgeX>,

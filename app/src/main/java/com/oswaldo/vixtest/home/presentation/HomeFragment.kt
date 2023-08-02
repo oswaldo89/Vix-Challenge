@@ -1,7 +1,6 @@
 package com.oswaldo.vixtest.home.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,8 +34,6 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -58,9 +55,24 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
                     it.postersMovies,
                     it.premiumMovies
                 )
-
+                is HomeViewModel.State.EmptyView -> showEmptyView()
                 else -> {}
             }
+        }
+    }
+
+    private fun showEmptyView() {
+        binding.run {
+            homeScroll.visibility = View.GONE
+            emptyLayout.visibility = View.VISIBLE
+            stopAutoScroll()
+        }
+    }
+
+    private fun showDataView() {
+        binding.run {
+            homeScroll.visibility = View.VISIBLE
+            emptyLayout.visibility = View.GONE
         }
     }
 
@@ -101,6 +113,8 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
 
             premiumMoviesAdapter = MovieListAdapter(premiumMovies, this@HomeFragment)
             rvPremium.adapter = premiumMoviesAdapter
+
+            showDataView()
         }
     }
 
@@ -109,17 +123,17 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
     }
 
     override fun onClickPage(page: UiPage) {
-        Log.v("page_clicked", page.pageName)
+        viewModel.onPageClicked(page)
     }
 
     override fun onPause() {
         super.onPause()
-        binding.rvPosters.stopAutoScroll()
+        stopAutoScroll()
     }
 
     private fun startAutoScroll() {
         posterList?.let {
-            binding.rvPosters.startAutoScroll(it, AUTO_SCROLL_DELAY)
+            startAutoScroll(binding.rvPosters,it, AUTO_SCROLL_DELAY)
         }
     }
 
