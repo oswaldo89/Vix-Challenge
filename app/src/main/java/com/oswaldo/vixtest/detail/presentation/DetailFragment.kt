@@ -50,6 +50,7 @@ class DetailFragment : BaseFragment() {
         binding.run {
             posterImage.loadUrl(requireContext(), data.node.image.link)
             title.text = data.node.clickTrackingJson.uiContentTitle
+            description.text = data.node.video.description
         }
     }
 
