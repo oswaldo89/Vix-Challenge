@@ -44,6 +44,7 @@ class HomeViewModel @Inject constructor(
 
     fun onMovieClicked(data: EdgeX) {
         val args = Bundle()
+        args.putString("parent_cursor", data.parentCursor)
         args.putString("cursor", data.cursor)
         navigateTo(Navigation.GoToDetail(args))
     }

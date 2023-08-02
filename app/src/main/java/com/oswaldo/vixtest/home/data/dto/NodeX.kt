@@ -37,7 +37,7 @@ data class NodeX(
     @SerializedName("stream")
     val stream: StreamX,
     @SerializedName("textTitle")
-    val textTitle: Any,
+    val textTitle: String,
     @SerializedName("tournamentCardBackground")
     val tournamentCardBackground: TournamentCardBackground,
     @SerializedName("tournamentLogo")

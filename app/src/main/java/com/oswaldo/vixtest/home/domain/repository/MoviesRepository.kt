@@ -11,4 +11,6 @@ interface MoviesRepository {
     suspend fun getPosters() : List<EdgeX>
 
     suspend fun getPremium() : List<EdgeX>
+
+    suspend fun getDetail(parentCursor: String, cursor : String) : EdgeX
 }

@@ -26,6 +26,10 @@
         tools:layout="@layout/fragment_detail">
 
         <argument
+            android:name="parent_cursor"
+            app:argType="string" />
+
+        <argument
             android:name="cursor"
             app:argType="string" />
 

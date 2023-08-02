@@ -38,6 +38,10 @@ class DefaultMoviesRepository(
         return getMoviesByCursor(PREMIUM_ID)
     }
 
+    override suspend fun getDetail(parentCursor: String, cursor: String): EdgeX {
+        return getMovieByCursor(parentCursor, cursor)
+    }
+
     private fun getSource(): DataUiPage {
         val json: String = context.assets.open(JSON_FILE_NAME).bufferedReader().use { it.readText() }
         val gson = Gson()
@@ -47,7 +51,18 @@ class DefaultMoviesRepository(
     private fun getMoviesByCursor(cursor: String): List<EdgeX> {
         val source = getSource()
         val movies = source.data.uiPage.uiModules?.edges?.find { it.cursor == cursor }
-        return movies?.node?.contents?.edges.orEmpty()
+        val movieContents = movies?.node?.contents?.edges.orEmpty()
+
+        return movieContents.map { content ->
+            content.parentCursor = cursor
+            content
+        }
+    }
+
+    private fun getMovieByCursor(parentCursor: String, cursor: String): EdgeX {
+        val source = getSource()
+        val movie = source.data.uiPage.uiModules?.edges?.find { it.cursor == parentCursor }?.node?.contents?.edges?.find { it.cursor == cursor }
+        return movie!!
     }
 
     companion object {

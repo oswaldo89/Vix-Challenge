@@ -26,7 +26,6 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
 
     private var posterList: List<EdgeX>? = null
     private val viewModel: HomeViewModel by viewModels()
-
     private lateinit var pagesAdapter: PageAdapter
     private lateinit var posterMoviesAdapter: MoviePosterListAdapter
     private lateinit var originalMoviesAdapter: MovieListAdapter
