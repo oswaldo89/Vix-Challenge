@@ -27,13 +27,11 @@ class PageAdapter(private var pages: List<UiPage>, private var iPageEvent: IPage
                 val context = itemView.context
                 binding.btnPage.text = this.pageName
 
-                if (this.selected){
-                    binding.btnPage.setTextColor(ContextCompat.getColor(context, R.color.white))
-                    binding.btnPage.setBackgroundResource(R.drawable.bg_btn_page_selected)
-                }else{
-                    binding.btnPage.setTextColor(ContextCompat.getColor(context, R.color.circleButton))
-                    binding.btnPage.setBackgroundResource(R.drawable.bg_btn_page_normal)
-                }
+                val textColor = if (this.selected) R.color.white else R.color.circleButton
+                val backgroundRes = if (this.selected) R.drawable.bg_btn_page_selected else R.drawable.bg_btn_page_normal
+
+                binding.btnPage.setTextColor(ContextCompat.getColor(context, textColor))
+                binding.btnPage.setBackgroundResource(backgroundRes)
 
                 binding.btnPage.setOnSafeClickListener {
                     deselectAllItems()
