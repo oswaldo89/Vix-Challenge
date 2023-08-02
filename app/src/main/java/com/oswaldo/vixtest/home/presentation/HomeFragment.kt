@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.oswaldo.vixtest.BaseFragment
 import com.oswaldo.vixtest.R
 import com.oswaldo.vixtest.core.utils.OneTimeEventObserver
@@ -28,6 +27,7 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
     private lateinit var pagesAdapter: PageAdapter
     private lateinit var posterMoviesAdapter: MoviePosterListAdapter
     private lateinit var originalMoviesAdapter: MovieListAdapter
+    private lateinit var premiumMoviesAdapter: MovieListAdapter
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -50,7 +50,8 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
                 is HomeViewModel.State.ShowOriginals -> setupData(
                     it.pages,
                     it.originalMovies,
-                    it.postersMovies
+                    it.postersMovies,
+                    it.premiumMovies
                 )
 
                 else -> {}
@@ -76,10 +77,11 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
             setupHorizontalRv(rvPages)
             setupHorizontalRv(rvOriginals)
             setupHorizontalRv(rvPosters)
+            setupHorizontalRv(rvPremium)
         }
     }
 
-    private fun setupData(pages: List<UiPage>, originalMovies: List<EdgeX>, postersMovies: List<EdgeX>) {
+    private fun setupData(pages: List<UiPage>, originalMovies: List<EdgeX>, postersMovies: List<EdgeX>, premiumMovies: List<EdgeX>) {
         binding.apply {
             pagesAdapter = PageAdapter(pages, this@HomeFragment)
             rvPages.adapter = pagesAdapter
@@ -89,6 +91,9 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
 
             posterMoviesAdapter = MoviePosterListAdapter(postersMovies, this@HomeFragment)
             rvPosters.adapter = posterMoviesAdapter
+
+            premiumMoviesAdapter = MovieListAdapter(premiumMovies, this@HomeFragment)
+            rvPremium.adapter = premiumMoviesAdapter
         }
     }
 

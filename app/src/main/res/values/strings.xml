@@ -2,4 +2,6 @@
     <string name="app_name">Vix Test</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_originals">Vix Originales ahora sin suscripción</string>
+    <string name="label_premium">Descubre lo mejor de Premium</string>
 </resources>

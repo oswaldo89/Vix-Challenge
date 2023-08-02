@@ -7,6 +7,7 @@ import com.oswaldo.vixtest.home.data.dto.UiPage
 import com.oswaldo.vixtest.home.domain.usecase.GetOriginalMoviesUseCase
 import com.oswaldo.vixtest.home.domain.usecase.GetPagesUseCase
 import com.oswaldo.vixtest.home.domain.usecase.GetPostersMoviesUseCase
+import com.oswaldo.vixtest.home.domain.usecase.GetPremiumMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,8 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private var pagesUseCase: GetPagesUseCase,
-    private var originalMoviesUsecase: GetOriginalMoviesUseCase,
-    private var postersMoviesUsecase: GetPostersMoviesUseCase
+    private var originalMoviesUseCase: GetOriginalMoviesUseCase,
+    private var postersMoviesUseCase: GetPostersMoviesUseCase,
+    private var premiumMoviesUseCase: GetPremiumMoviesUseCase
 ) : BaseViewModel<HomeViewModel.State, HomeViewModel.Navigation>() {
     private var dataHasBeenLoaded = false
     fun init() {
@@ -24,8 +26,9 @@ class HomeViewModel @Inject constructor(
                 setState(
                     State.ShowOriginals(
                         pagesUseCase(),
-                        originalMoviesUsecase(),
-                        postersMoviesUsecase()
+                        originalMoviesUseCase(),
+                        postersMoviesUseCase(),
+                        premiumMoviesUseCase()
                     )
                 )
                 dataHasBeenLoaded = true
@@ -41,7 +44,8 @@ class HomeViewModel @Inject constructor(
         class ShowOriginals(
             val pages: List<UiPage>,
             val originalMovies: List<EdgeX>,
-            val postersMovies: List<EdgeX>
+            val postersMovies: List<EdgeX>,
+            val premiumMovies: List<EdgeX>
         ) : State()
     }
 

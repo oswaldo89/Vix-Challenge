@@ -9,4 +9,6 @@ interface MoviesRepository {
 
     suspend fun getOriginalMovies() : List<EdgeX>
     suspend fun getPosters() : List<EdgeX>
+
+    suspend fun getPremium() : List<EdgeX>
 }
