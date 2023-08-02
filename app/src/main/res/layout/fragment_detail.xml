@@ -44,99 +44,126 @@
         app:layout_constraintStart_toStartOf="@+id/posterImage"
         app:layout_constraintTop_toTopOf="@+id/posterImage" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/homeScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="@dimen/title_padding_top"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back"
-        tools:ignore="RtlSymmetry">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:paddingStart="@dimen/normal_100"
-            android:paddingEnd="@dimen/large_300"
-            android:text="@string/label_title"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large_2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:fontFamily="@font/roboto_light"
-            android:maxLines="3"
-            android:padding="@dimen/normal_100"
-            android:text="@string/lorem_ipsum"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_medium_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
-
-        <TextView
-            android:id="@+id/genres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingStart="@dimen/normal_100"
-            android:text="@string/label_description"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_medium_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+            android:id="@+id/content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingTop="@dimen/title_padding_top"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genres">
+            app:layout_constraintTop_toBottomOf="@+id/back"
+            tools:ignore="RtlSymmetry">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnPlay"
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:paddingStart="@dimen/normal_100"
+                android:paddingEnd="@dimen/large_300"
+                android:text="@string/label_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/normal_100"
-                android:background="@drawable/bg_btn_orange_vix"
-                android:drawableStart="@drawable/baseline_play_arrow_24"
-                android:fontFamily="@font/roboto"
-                android:foreground="?selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:paddingStart="120dp"
-                android:paddingEnd="120dp"
-                android:text="@string/ver_ahora"
-                android:textAlignment="center"
-                android:textAllCaps="false"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_light"
+                android:maxLines="3"
+                android:padding="@dimen/normal_100"
+                android:text="@string/lorem_ipsum"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_medium_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvOptions"
-                android:layout_width="0dp"
-                android:layout_height="?attr/actionBarSize"
-                android:orientation="horizontal"
+            <TextView
+                android:id="@+id/genres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
                 android:paddingStart="@dimen/normal_100"
+                android:text="@string/label_description"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnPlay"
-                tools:itemCount="5"
-                tools:listitem="@layout/item_page_button" />
+                app:layout_constraintTop_toBottomOf="@+id/description" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genres">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPlay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_100"
+                    android:background="@drawable/bg_btn_orange_vix"
+                    android:drawableStart="@drawable/baseline_play_arrow_24"
+                    android:fontFamily="@font/roboto"
+                    android:foreground="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:paddingStart="120dp"
+                    android:paddingEnd="120dp"
+                    android:text="@string/ver_ahora"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOptions"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/large_200"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/normal_100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPlay"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_page_button" />
+
+                <TextView
+                    android:id="@+id/fullDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:paddingStart="@dimen/normal_100"
+                    android:paddingEnd="@dimen/normal_100"
+                    android:paddingBottom="@dimen/normal_100"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvOptions" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

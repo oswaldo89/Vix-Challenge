@@ -62,6 +62,7 @@ class DetailFragment : BaseFragment() , IOptionEvent{
             posterImage.loadUrl(requireContext(), viewModel.loadVideoImageCover(data))
             title.text = data.node.clickTrackingJson.uiContentTitle
             description.text = data.node.video.description
+            fullDescription.text = data.node.video.description
 
             optionsAdapter = OptionsAdapter(options, this@DetailFragment)
             rvOptions.adapter = optionsAdapter
