@@ -1,5 +1,6 @@
 package com.oswaldo.vixtest.home.presentation
 
+import android.os.Bundle
 import androidx.lifecycle.viewModelScope
 import com.oswaldo.vixtest.core.BaseViewModel
 import com.oswaldo.vixtest.home.data.dto.EdgeX
@@ -11,6 +12,7 @@ import com.oswaldo.vixtest.home.domain.usecase.GetPremiumMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -41,7 +43,9 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onMovieClicked(data: EdgeX) {
-        navigateTo(Navigation.GoToDetail(data))
+        val args = Bundle()
+        args.putString("cursor", data.cursor)
+        navigateTo(Navigation.GoToDetail(args))
     }
 
     fun onPageClicked(page: UiPage) {
@@ -65,6 +69,6 @@ class HomeViewModel @Inject constructor(
     }
 
     sealed class Navigation {
-        class GoToDetail(val data: EdgeX) : Navigation()
+        class GoToDetail(val args: Bundle) : Navigation()
     }
 }

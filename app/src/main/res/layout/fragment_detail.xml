@@ -27,5 +27,88 @@
         app:layout_constraintStart_toStartOf="@+id/posterImage"
         app:layout_constraintTop_toTopOf="@+id/posterImage" />
 
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/normal_250"
+        android:layout_height="@dimen/normal_250"
+        android:layout_margin="@dimen/normal_200"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/bg_ripple"
+        android:importantForAccessibility="no"
+        android:scaleType="center"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/large_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:paddingStart="@dimen/normal_100"
+            android:paddingEnd="@dimen/large_300"
+            android:text="@string/label_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="3"
+            android:padding="@dimen/normal_100"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/genres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:paddingStart="@dimen/normal_100"
+            android:text="@string/label_description"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_100"
+            android:background="@drawable/bg_btn_orange_vix"
+            android:fontFamily="@font/roboto"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="@string/ver_ahora"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genres" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

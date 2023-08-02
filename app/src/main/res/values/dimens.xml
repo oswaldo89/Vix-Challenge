@@ -21,9 +21,12 @@
     <dimen name="large_150">48dp</dimen>
     <dimen name="large_175">56dp</dimen>
     <dimen name="large_200">64dp</dimen>
+    <dimen name="large_250">100dp</dimen>
+    <dimen name="large_300">150dp</dimen>
 
     <!-- Text Sizes. -->
     <dimen name="text_small_1">12sp</dimen>
+    <dimen name="text_medium_1">16sp</dimen>
     <dimen name="text_large_1">20sp</dimen>
     <dimen name="text_large_2">40sp</dimen>
 

@@ -5,4 +5,8 @@
     <string name="label_originals">Vix Originales ahora sin suscripción</string>
     <string name="label_premium">Descubre lo mejor de Premium</string>
     <string name="no_data_to_show">No data to show</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</string>
+    <string name="label_description">Comedia, Viajes - 2019</string>
+    <string name="ver_ahora">Ver ahora</string>
+    <string name="label_title">De viaje con los derbez</string>
 </resources>

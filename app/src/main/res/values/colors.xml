@@ -8,8 +8,7 @@
     <color name="colorAccent">#FFFFFFFF</color>
 
     <color name="circleButton">#4E525E</color>
-
-
+    <color name="orange_vix"> #FF5900</color>
 
     <color name="blackAlpha90Color">#E6000000</color>
     <color name="blackAlpha20Color">#33000000</color>

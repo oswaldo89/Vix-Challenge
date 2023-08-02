@@ -25,6 +25,10 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 
+        <argument
+            android:name="cursor"
+            app:argType="string" />
+
         <action
             android:id="@+id/action_fragment_3_to_fragment_1"
             app:destination="@id/homeFragment"

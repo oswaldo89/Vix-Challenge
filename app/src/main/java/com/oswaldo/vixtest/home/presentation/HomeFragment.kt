@@ -82,7 +82,7 @@ class HomeFragment : BaseFragment(), IMovieEvent, IPageEvent {
             OneTimeEventObserver {
                 when (it) {
                     is HomeViewModel.Navigation.GoToDetail -> {
-                        navController.navigate(R.id.action_homeFragment_to_detailFragment)
+                        navController.navigate(R.id.action_homeFragment_to_detailFragment, it.args)
                     }
                 }
             }
