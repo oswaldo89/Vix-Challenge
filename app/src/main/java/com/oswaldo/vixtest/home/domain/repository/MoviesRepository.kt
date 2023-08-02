@@ -7,6 +7,8 @@ interface MoviesRepository {
 
     suspend fun getPages() : List<UiPage>
 
+    suspend fun getDetailOptions() : List<UiPage>
+
     suspend fun getOriginalMovies() : List<EdgeX>
     suspend fun getPosters() : List<EdgeX>
 

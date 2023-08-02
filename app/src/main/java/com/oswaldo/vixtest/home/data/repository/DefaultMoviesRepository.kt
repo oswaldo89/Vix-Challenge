@@ -24,6 +24,15 @@ class DefaultMoviesRepository(
         )
     }
 
+    override suspend fun getDetailOptions(): List<UiPage> {
+        return listOf(
+            UiPage(pageName = "Detalles", selected = true),
+            UiPage(pageName = "Similares", selected = false),
+            UiPage(pageName = "Otros mas", selected = false),
+            UiPage(pageName = "Otros recomiendan", selected = false)
+        )
+    }
+
     // if the data comes from the endpoint, we can use remoteDataSource
     // but for this example, use a local json provided by the company
     override suspend fun getOriginalMovies(): List<EdgeX> {

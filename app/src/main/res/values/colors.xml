@@ -10,6 +10,25 @@
     <color name="circleButton">#4E525E</color>
     <color name="orange_vix"> #FF5900</color>
 
+    <color name="blackAlpha100Color">#FF000000</color>
+    <color name="blackAlpha95Color">#F2000000</color>
     <color name="blackAlpha90Color">#E6000000</color>
+    <color name="blackAlpha85Color">#D9000000</color>
+    <color name="blackAlpha80Color">#CC000000</color>
+    <color name="blackAlpha75Color">#BF000000</color>
+    <color name="blackAlpha70Color">#B3000000</color>
+    <color name="blackAlpha65Color">#A6000000</color>
+    <color name="blackAlpha60Color">#99000000</color>
+    <color name="blackAlpha55Color">#8C000000</color>
+    <color name="blackAlpha50Color">#80000000</color>
+    <color name="blackAlpha45Color">#73000000</color>
+    <color name="blackAlpha40Color">#66000000</color>
+    <color name="blackAlpha35Color">#59000000</color>
+    <color name="blackAlpha30Color">#4D000000</color>
+    <color name="blackAlpha25Color">#40000000</color>
     <color name="blackAlpha20Color">#33000000</color>
+    <color name="blackAlpha15Color">#26000000</color>
+    <color name="blackAlpha10Color">#1A000000</color>
+    <color name="blackAlpha5Color">#0D000000</color>
+    <color name="blackAlpha0Color">#00000000</color>
 </resources>

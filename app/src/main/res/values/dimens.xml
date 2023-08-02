@@ -40,4 +40,6 @@
     <dimen name="recommended_movie_thumb_width">156dp</dimen>
     <dimen name="recommended_movie_thumb_height">205dp</dimen>
 
+    <dimen name="title_padding_top">200dp</dimen>
+
 </resources>
