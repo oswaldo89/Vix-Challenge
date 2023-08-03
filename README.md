@@ -60,5 +60,4 @@ Tools used:
 </table>
 
 ## Video capture:
-![](https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258033834-b54f46f0-33d1-4cde-9c7e-65bbbb1a0a7b.gif)
-
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258035153-011c314b-6f35-4bf4-a70b-7e934e8d4df6.gif" alt="2" width = 130px>
