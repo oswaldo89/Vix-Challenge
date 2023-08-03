@@ -33,9 +33,9 @@ Tools used:
 
 
 ## My implementation:
-<img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/8f788649-e267-4a21-9da5-0a3c69c1a9f7">
-<img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/66979f84-98fe-4f2f-9cb2-77c75a8f582b">
-<img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/32eed3de-02cd-47dc-9a3a-0656ad6c53ad">
+<img width="221" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028441-ecd93204-e0f0-4d85-8cc6-82c3d4b71d39.png">
+<img width="221" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028838-e6ae4507-28e4-4a6e-85cc-331c51702954.png">
+<img width="221" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258029016-7e93fb8b-64d5-40ae-8560-21db3675e7a8.png">
 
 ## Video capture:
 <img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/86d04df2-d5e7-4e38-9839-384915867c20">
