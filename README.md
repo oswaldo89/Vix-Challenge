@@ -60,6 +60,5 @@ Tools used:
 </table>
 
 ## Video capture:
-<img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/86d04df2-d5e7-4e38-9839-384915867c20">
-
+![](https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258033834-b54f46f0-33d1-4cde-9c7e-65bbbb1a0a7b.gif)
 
