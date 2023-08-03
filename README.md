@@ -27,9 +27,20 @@ Tools used:
 
 
 ## Proposed Design in the Assessment
-<img width="221" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/574cc351-05ba-45da-adac-be5883bb364a">
-<img width="220" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/ac69707f-41e8-4635-80be-64bea203c928">
-<img width="218" alt="image" src="https://github.com/oswaldo89/vix_test/assets/5890993/f407c2c4-adcf-4204-84ad-fa9b831cd2b3">
+<table>
+  <tr>
+    <td>
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258030894-e54cbd2b-8f0b-4a14-9c89-e2422e7af1b3.png"  alt="1" width = 360px>
+    </td>
+    <td>
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258030998-4db69d7e-f3a8-4ffa-b20d-c65a3ae44ffd.png" alt="2" width = 360px>
+    </td>
+    <td>
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258031092-513663e9-62cb-44ce-ae49-cb777de73733.png" alt="2" width = 360px>
+    </td>
+   </tr>
+  </tr>
+</table>
 
 
 ## My implementation:
