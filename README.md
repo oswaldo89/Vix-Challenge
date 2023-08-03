@@ -36,13 +36,13 @@ Tools used:
 <table>
   <tr>
     <td>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028441-ecd93204-e0f0-4d85-8cc6-82c3d4b71d39.png"  alt="1" width = 360px height = 640px >
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028441-ecd93204-e0f0-4d85-8cc6-82c3d4b71d39.png"  alt="1" width = 360px>
     </td>
     <td>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028838-e6ae4507-28e4-4a6e-85cc-331c51702954.png" alt="2" width = 360px height = 640px>
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258028838-e6ae4507-28e4-4a6e-85cc-331c51702954.png" alt="2" width = 360px>
     </td>
     <td>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258029016-7e93fb8b-64d5-40ae-8560-21db3675e7a8.png" alt="2" width = 360px height = 640px>
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/5890993/258029016-7e93fb8b-64d5-40ae-8560-21db3675e7a8.png" alt="2" width = 360px>
     </td>
    </tr>
   </tr>
