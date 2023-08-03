@@ -1,5 +1,6 @@
 package com.oswaldo.vixtest.detail.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,11 @@ import com.oswaldo.vixtest.detail.presentation.adapters.OptionsAdapter
 import com.oswaldo.vixtest.home.data.dto.EdgeX
 import com.oswaldo.vixtest.home.data.dto.UiPage
 import com.oswaldo.vixtest.home.presentation.adapters.PageAdapter
+import com.oswaldo.vixtest.videoplayer.presentation.VideoPlayerActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : BaseFragment() , IOptionEvent{
+class DetailFragment : BaseFragment(), IOptionEvent {
 
     private val viewModel: DetailViewModel by viewModels()
     private lateinit var optionsAdapter: OptionsAdapter
@@ -74,6 +76,10 @@ class DetailFragment : BaseFragment() , IOptionEvent{
         binding.run {
             back.setOnSafeClickListener {
                 navController.popBackStack()
+            }
+            btnPlay.setOnSafeClickListener {
+                val intent = Intent(context, VideoPlayerActivity::class.java)
+                startActivity(intent)
             }
         }
     }
