@@ -54,6 +54,6 @@ class VideoPlayerActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val TEST_VIDEO = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        const val TEST_VIDEO = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
     }
 }
